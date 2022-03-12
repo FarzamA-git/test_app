@@ -1,0 +1,74 @@
+<h1 class="mb-4">Registration of New User</h1>
+<form (ngSubmit)="onSubmit(createForm)" #createForm="ngForm">
+  <div class="form-group">
+    <label for="name"> Name</label>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      class="form-control"
+      ngModel
+      required
+      style="width: 400px"
+    />
+  </div>
+  <div class="form-group">
+    <label for="Email"> Email</label>
+    <input
+      type="text"
+      id="Email"
+      name="email"
+      class="form-control"
+      ngModel
+      required
+      style="width: 400px"
+    />
+  </div>
+  <div class="form-group">
+    <label for="Address"> Course</label>
+    <select  style="width: 400px"  class="form-control" name="course_id" id="Course"  ngModel
+    required>
+      <option [value]="c.id" *ngFor="let c of courses">{{c.name}}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="Email"> Password</label>
+    <input
+      type="password"
+      id="Password"
+      name="password"
+      class="form-control"
+      ngModel
+      required
+      style="width: 400px"
+    />
+  </div>
+  <div class="form-group">
+    <label for="Password"> Confirm Password</label>
+    <input
+      type="password"
+      id="confirm-password"
+      name="password"
+      class="form-control"
+      ngModel
+      required
+      style="width: 400px"
+    />
+  </div>
+  <div class="form-group">
+    <label for="Address"> Address</label>
+    <input
+      type="text"
+      id="confirm-password"
+      name="address"
+      class="form-control"
+      ngModel
+      required
+      style="width: 400px"
+    />
+  </div>
+
+  <button [disabled]="createForm.invalid" class="btn btn-primary mt-2" type="submit">
+    Create
+  </button>
+</form>
