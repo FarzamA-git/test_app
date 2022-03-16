@@ -1,1 +1,42 @@
-<p>list-video works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-11 mx-1">
+      <iframe
+        [src]="transform(selectedpayListUrl)"
+        width="640"
+        height="360"
+        frameborder="0"
+        allowfullscreen
+        allow="autoplay; encrypted-media"
+      ></iframe>
+    </div>
+    <div class="col-md-11 mx-1">
+      <div *ngFor="let p of playlists" >
+        <p (click)="selectionOnViemo(p.url)" class="btn btn-info">Selected</p>
+          <iframe
+              [src]="transform(p.url)"
+              width="140"
+              height="140"
+              frameborder="0"
+              allowfullscreen
+
+            ></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script src="https://player.vimeo.com/api/player.js"></script>
+<script>
+    const iframe = document.querySelector('iframe');
+    const player = new Vimeo.Player(iframe);
+
+    player.on('play', function() {
+        console.log('played the video!');
+    });
+
+    player.getVideoTitle().then(function(title) {
+        console.log('title:', title);
+    });
+</script>

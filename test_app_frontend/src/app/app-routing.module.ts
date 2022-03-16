@@ -29,7 +29,6 @@ const routes: Routes = [
     path: 'paylist',
     loadChildren: () =>
       import('./play-list/play-list.module').then((m) => m.PlayListModule),
-      canActivate: [AuthGuardService] 
   },
 ];
 

@@ -51,5 +51,9 @@ export class ApiService {
     return this.http.post(`http://localhost:8000/api/login` , data);
   }
 
+  getAllPlayList(): Observable<Student[]> {
+    return this.http.get<Student[]>(`http://localhost:8000/api/showVideo`);
+  }
+
 
 }
