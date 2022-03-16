@@ -27,6 +27,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('create', [UserController::class, 'register']);
 Route::post('login', [UserController::class, 'login']);
 Route::get('showCourse', [CourseController::class, 'getCourse']);
+Route::get('showVideo', [VideoController::class, 'getVideo']);
 
 Route::group(['middleware' => ['jwt.verify']], function () {
     Route::post('logout', [UserController::class, 'logout']);
@@ -44,7 +45,6 @@ Route::group(['middleware' => ['jwt.verify']], function () {
     Route::delete('deletePlaylist/{id}', [PlaylistController::class, 'delete']);
 
     Route::post('addVideo', [VideoController::class, 'add']);
-    Route::get('showVideo', [VideoController::class, 'getVideo']);
     Route::post('updateVideo/{id}', [VideoController::class, 'update']);
     Route::delete('deleteVideo/{id}', [VideoController::class, 'delete']);
 });
