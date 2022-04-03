@@ -7,13 +7,12 @@ import { StudentCreateComponent } from './student-create/student-create.componen
 import { StudentListComponent } from './student-list/student-list.component';
 import { FormsModule } from '@angular/forms';
 
-
 @NgModule({
-  declarations: [StudentComponent, StudentCreateComponent, StudentListComponent],
-  imports: [
-    CommonModule,
-    FormsModule,
-    StudentRoutingModule
-  ]
+  declarations: [
+    StudentComponent,
+    StudentCreateComponent,
+    StudentListComponent,
+  ],
+  imports: [CommonModule, FormsModule, StudentRoutingModule],
 })
-export class StudentModule { }
+export class StudentModule {}

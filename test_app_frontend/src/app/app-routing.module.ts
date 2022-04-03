@@ -30,6 +30,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./play-list/play-list.module').then((m) => m.PlayListModule),
   },
+  {
+    path: 'vimeo',
+    loadChildren: () =>
+      import('./vimeo/vimeo.module').then((m) => m.VimeoModule),
+  },
 ];
 
 @NgModule({
