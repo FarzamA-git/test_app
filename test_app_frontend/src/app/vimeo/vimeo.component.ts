@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {VimeoUploadService} from './services/vimeo-upload.service';
 import {HttpEventType, HttpResponse} from '@angular/common/http';
 import { map, switchMap } from 'rxjs/operators';
+let Vimeo  = require('Vimeo');
 
 @Component({
   selector: 'app-vimeo',
@@ -12,7 +13,8 @@ import { map, switchMap } from 'rxjs/operators';
 export class VimeoComponent implements OnInit {
 
   public vimeoUploadForm: FormGroup;
-
+  iframe = document.querySelector('iframe');
+  player = new Vimeo.Player(this.iframe)
   private data: any;
   public uploadPercent;
   // Track upload status by tracking code
@@ -121,4 +123,21 @@ export class VimeoComponent implements OnInit {
     );
   }
 
+  playOn(){
+    this.player.on('play', function() {
+      console.log('played the video!');
+  });
+  }
+
+  playOff(){
+    this.player.off('play', function() {
+      console.log('played the video!');
+  });
+  }
+
+  playPause(){
+    this.player.pause('play', function() {
+      console.log('played the video!');
+  });
+  }
 }
